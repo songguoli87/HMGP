@@ -1,6 +1,6 @@
 # HMGP
 
-Matlab code for harmonized GPLVMs (G.Song, et al., Multimodal Gaussian Process Latent Variable Models with Harmonization, ICCV 2017)
+Matlab code for harmonized GPLVMs (G. Song, et al., Multimodal Gaussian Process Latent Variable Models with Harmonization, ICCV 2017)
 
 Dependencies:
 
