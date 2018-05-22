@@ -1,8 +1,8 @@
 # HMGP
 
-Matlab code for harmonized GPLVMs (G.Song, et al., ICCV 2017)
+Matlab code for harmonized GPLVMs (G.Song, et al., Multimodal Gaussian Process Latent Variable Models with Harmonization, ICCV 2017)
 
-Dependencies graph:
+Dependencies:
 
 (1) GPmat - Neil Lawrence's GP matlab toolbox: https://github.com/SheffieldML/GPmat
 
