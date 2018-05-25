@@ -29,17 +29,17 @@ end
 %%  Learn Initialisation through CCA
 load('./data/pascal1K.mat');
 
-% fprintf('performing svd...\n');
-% 
-% [~,~,v] = svds(I_tr,128);
-% X = I_tr * v;
-% 
-% [~,~,v] = svds(T_tr,10);
-% Y = T_tr * v;
+fprintf('performing svd...\n');
 
-Ky1 = I_tr*I_tr';
-Ky2 = T_tr*T_tr';
+[~,~,v] = svds(I_tr,128);
+Y1 = I_tr * v;
+
+[~,~,v] = svds(T_tr,10);
+Y2 = T_tr * v;
 clear I_tr T_tr I_te T_te;
+
+Ky1 = Y1*Y1';
+Ky2 = Y2*Y2';
 
 % pre-process Kernels
 Ky1 = kernelCenter(Ky1);
