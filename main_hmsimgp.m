@@ -46,7 +46,7 @@ Ky2 = (Ky2+Ky2')./2;
 Y1cca = Ky1*A;
 Y2cca = Ky2*B;
 
-Xs = (1/2).*(Xcca+Ycca);
+Xs = (1/2).*(Y1cca+Y2cca);
 X_init = Xs ;
 X_init = (X_init-repmat(mean(X_init),size(X_init,1),1))./repmat(std(X_init),size(X_init,1),1);
 clear Ky1 Ky2 Y1cca Y2cca A B;
