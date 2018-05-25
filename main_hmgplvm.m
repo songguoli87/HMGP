@@ -1,6 +1,7 @@
 % Demonstrate the hmGPLVM.
 clear;
 close all;
+addpath(genpath('.\code'));
 
 %%  Load Data
 dataType = 'pascal';
