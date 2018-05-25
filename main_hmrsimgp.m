@@ -87,15 +87,15 @@ options.kernelFconstraints = false; % hmgplvm-Fnorm
 options.kernelSxL21norm = false; % hmgplvm-L21 norm
 options.kernelSxtrace = true; % hmgplvm-trace
 
-options.mu = 1e-2;
+options.mu = 1e-1;
 options.gamma1 = 1e0;  
 
 model = sgplvmCreate_tr(model,[],options);
 
 % add semantic constraints 
 options_constraint = constraintOptions('Sim');
-options_constraint.lambda1 = 1e-1;
-options_constraint.lambda2 = 1e-1;
+options_constraint.lambda1 = 1e0;
+options_constraint.lambda2 = 1e0;
 options_constraint.N = model.N;
 options_constraint.q = model.q;
 options_constraint.dim = 1:model.q;
@@ -103,7 +103,7 @@ options_constraint.SXY = SXY_tr;
 model = sgplvmAddConstraint(model,options_constraint);
   
 %%  Train model
-nr_iters = 300;
+nr_iters = 100;
 model = sgplvmOptimise_tr(model,true,nr_iters,false,false);
 
 %%  Test model
