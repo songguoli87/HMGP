@@ -21,17 +21,17 @@ else
 end
 
 %%  Learn Initialisation through CCA
-% fprintf('performing svd...\n');
-% 
-% [~,~,v] = svds(Ytr{1},128);
-% Y1 = Ytr{1} * v;
-% 
-% [~,~,v] = svds(Ytr{2},10);
-% Y2 = Ytr{2} * v;
-   
-Ky1 = Ytr{1}*Ytr{1}';
-Ky2 = Ytr{2}*Ytr{2}';
+fprintf('performing svd...\n');
 
+[~,~,v] = svds(Ytr{1},128);
+Y1 = Ytr{1} * v;
+
+[~,~,v] = svds(Ytr{2},10);
+Y2 = Ytr{2} * v;
+
+Ky1 = Y1*Y1';
+Ky2 = Y2*Y2';
+   
 % pre-process Kernels
 Ky1 = kernelCenter(Ky1);
 Ky2 = kernelCenter(Ky2);
@@ -48,6 +48,9 @@ Xs = (1/2).*(Y1cca+Y2cca);
 X_init = Xs ;
 X_init = (X_init-repmat(mean(X_init),size(X_init,1),1))./repmat(std(X_init),size(X_init,1),1);
 clear Ky1 Ky2 Y1cca Y2cca A B;
+
+% q = 8;
+% X_init = X_init(:,1:q);
 
 %% Create hmGPLVM model
 options_y1 = fgplvmOptions(approx);
@@ -75,12 +78,12 @@ options.kernelFconstraints = false; % hmgplvm-Fnorm
 options.kernelSxL21norm = false; % hmgplvm-L21 norm
 options.kernelSxtrace = true; % hmgplvm-trace
 
-options.mu = 1e0;
+options.mu = 1e-1;
 options.gamma1 = 1e0;
 
 model = sgplvmCreate_tr(model,[],options);
 %%  Train hmGPLVM model
-nr_iters = 300;
+nr_iters = 200;
 model = sgplvmOptimise_tr(model,true,nr_iters,false,false);
 fprintf(' Training done.\n')
 
