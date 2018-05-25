@@ -88,7 +88,7 @@ obsMod = 1; % one of the involved sub-models (the one for which we have the data
 infMod = setdiff(1:2, obsMod);
 numberTestPoints = size(Yts{obsMod},1);
 
-perm = randperm(size(Yts{obsMod},1));./data/
+perm = randperm(size(Yts{obsMod},1));
 testInd = perm(1:numberTestPoints);
 load('./data/pascal1K_cat');
 L = length(cat.te);
