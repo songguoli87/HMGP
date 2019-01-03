@@ -12,9 +12,9 @@ Dependencies:
 
 
 We provide the demo code on PASCAL dataset. 
--- pascal1K.mat: the feature representations for image and text.
--- pascal1K_sim.mat: the intra-modal similarity feature for image and text.
--- pascal1K_cat.mat: the class groundtruth.
+- pascal1K.mat: the feature representations for image and text.
+- pascal1K_sim.mat: the intra-modal similarity feature for image and text.
+- pascal1K_cat.mat: the class groundtruth.
 
 You can set options.kernelFconstraints to be true for running the model (e.g., main_hmGPLVM) with the F-norm constraint, options.kernelSxL21norm to be true for running the model with the l21-norm constraint, and options.kernelSxtrace  to be true for running the model with the trace constraint.
 
