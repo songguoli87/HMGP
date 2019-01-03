@@ -2,7 +2,7 @@
 
 Matlab code for harmonized GPLVMs (G. Song, et al., Multimodal Gaussian Process Latent Variable Models with Harmonization, ICCV 2017)
 
-The core code of our model is given in the HMGP/matlab/ subdirectory, where each .m file is named according to the type of the harmonization constraint (F, $l_{2,1}$, tr).
+The core code of our model is given in the HMGP/matlab/, where each .m file is named according to the type of the harmonization constraint (F, l21, tr).
 
 Dependencies:
 
